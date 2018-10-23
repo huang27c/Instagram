@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) -> Void in
             //Check if something went wrong w/log in
             if let error = error {
+                self.provideAlert(title: "Error", message: "Please enter valid username and password")
                 print(error.localizedDescription)
             }
             else if user != nil {
