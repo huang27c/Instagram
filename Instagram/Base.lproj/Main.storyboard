@@ -125,7 +125,12 @@
                                 <action selector="onLogout:" destination="ufq-PM-Yyw" id="xg6-ia-kVM"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="insta_camera_btn" id="qaD-7u-tGl"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="insta_camera_btn" id="qaD-7u-tGl">
+                            <connections>
+                                <action selector="onCamera:" destination="ufq-PM-Yyw" id="Syi-kZ-Xj1"/>
+                                <segue destination="Uba-7b-Qtj" kind="presentation" identifier="composeSegue" id="a9k-Xa-aO9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cIP-fm-Ir2" id="l7C-Jc-R6I"/>
@@ -134,6 +139,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zza-nG-3h8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1720.8" y="132.68365817091455"/>
+        </scene>
+        <!--New Post-->
+        <scene sceneID="f9l-ts-zG8">
+            <objects>
+                <viewController id="S63-GQ-Fdm" customClass="ComposeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h1C-Jh-dXz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tbN-Dz-nlw">
+                                <rect key="frame" x="0.0" y="64" width="160" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Umy-TC-NwM" appends="YES" id="smk-9r-h3d"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uqB-A3-mTW">
+                                <rect key="frame" x="168" y="64" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rcN-ym-Ba4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Post" id="AnH-MX-nlf">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="THT-A3-YeO">
+                            <connections>
+                                <action selector="onCancel:" destination="S63-GQ-Fdm" id="DEa-b9-zDL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="ue3-uq-4at">
+                            <connections>
+                                <action selector="onShare:" destination="S63-GQ-Fdm" id="8Wi-6y-tQs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="captionTextField" destination="uqB-A3-mTW" id="bSq-YO-KkS"/>
+                        <outlet property="image" destination="tbN-Dz-nlw" id="pea-qm-Os9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yss-wr-c0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Umy-TC-NwM">
+                    <connections>
+                        <action selector="onTap:" destination="S63-GQ-Fdm" id="Edb-Yf-RUc"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3516" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vax-bg-LdQ">
@@ -153,8 +211,27 @@
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="132.68365817091455"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zv5-sa-Et1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uba-7b-Qtj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zmE-uX-LEh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S63-GQ-Fdm" kind="relationship" relationship="rootViewController" id="XX9-1R-Pz2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MaX-38-QzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2576.8000000000002" y="132.68365817091455"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
     </resources>
 </document>

@@ -16,12 +16,42 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let refreshControl = UIRefreshControl()
-        tableView.rowHeight = UITableViewAutomaticDimension
         
-        // Do any additional setup after loading the view.
+        tableView.rowHeight = tableView.frame.height/2.5
+        let refreshControl = UIRefreshControl()
+        //refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControl.Event.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
     }
 
+    @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        fetchPosts()
+    }
+    
+    func fetchPosts(){
+        // construct PFQuery
+        /*
+        let query = Post.query()!
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.includeKey("image")
+        query.includeKey("caption")
+        query.limit = 20
+ 
+        // fetch data asynchronously
+        query.findObjectsInBackground { (posts , error) in
+            if let posts = posts {
+                // do something with the data fetched
+                
+                self.posts = posts as! [Post]
+                print(posts.count)
+                print("fetched posts \(posts[0]["media"])")
+                self.postsTableView.reloadData()
+            } else {
+                print("Something is wrong")
+            }
+        }*/
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,8 +64,14 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    @IBAction func onCamera(_ sender: Any) {
+        self.performSegue(withIdentifier: "composeSegue", sender: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+        //return posts?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
