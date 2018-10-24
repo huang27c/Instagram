@@ -12,24 +12,27 @@ import Parse
 class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    //var posts : [Post]?
+    var posts : [Post]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = tableView.frame.height/2.5
         let refreshControl = UIRefreshControl()
-        //refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        fetchPosts()
+    }
+    
     @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
         fetchPosts()
     }
     
     func fetchPosts(){
         // construct PFQuery
-        /*
         let query = Post.query()!
         query.order(byDescending: "createdAt")
         query.includeKey("author")
@@ -45,11 +48,11 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 self.posts = posts as! [Post]
                 print(posts.count)
                 print("fetched posts \(posts[0]["media"])")
-                self.postsTableView.reloadData()
+                self.tableView.reloadData()
             } else {
                 print("Something is wrong")
             }
-        }*/
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,13 +73,12 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-        //return posts?.count ?? 0
+        return posts?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        //cell.instagramPost = posts?[indexPath.row]
+        cell.instagramPost = posts?[indexPath.row]
         return cell
     }
     /*
