@@ -17,6 +17,8 @@
 		E1269CD3217F676400D174A6 /* InstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1269CD2217F676400D174A6 /* InstagramTests.swift */; };
 		E1269CDE217F676400D174A6 /* InstagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1269CDD217F676400D174A6 /* InstagramUITests.swift */; };
 		E1351774217F95BB004B5054 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1351773217F95BB004B5054 /* LoginViewController.swift */; };
+		E135177721801772004B5054 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135177621801772004B5054 /* HomeFeedViewController.swift */; };
+		E135177A21801B88004B5054 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135177921801B88004B5054 /* PostCell.swift */; };
 		E8E70E57A78A17921A740508 /* Pods_InstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2C178B6C7CFE840504FB56 /* Pods_InstagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		E1269CDD217F676400D174A6 /* InstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUITests.swift; sourceTree = "<group>"; };
 		E1269CDF217F676400D174A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1351773217F95BB004B5054 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E135177621801772004B5054 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
+		E135177921801B88004B5054 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		EDA2A9790C28AEEC4FE8D03B /* Pods-InstagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F54819CCF87A7A82BC13ABE4 /* Pods_InstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6421AC71901DFE19C804BFC /* Pods-InstagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramUITests/Pods-InstagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		E1269CBC217F676200D174A6 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				E135177821801B64004B5054 /* Views */,
 				E1351772217F9593004B5054 /* ViewControllers */,
 				E1269CBD217F676200D174A6 /* AppDelegate.swift */,
 				E1269CBF217F676200D174A6 /* ViewController.swift */,
@@ -172,8 +177,17 @@
 			isa = PBXGroup;
 			children = (
 				E1351773217F95BB004B5054 /* LoginViewController.swift */,
+				E135177621801772004B5054 /* HomeFeedViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E135177821801B64004B5054 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E135177921801B88004B5054 /* PostCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,11 +348,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Instagram/Pods-Instagram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseUI/ParseUI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseUI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -391,6 +407,8 @@
 				E1351774217F95BB004B5054 /* LoginViewController.swift in Sources */,
 				E1269CC0217F676200D174A6 /* ViewController.swift in Sources */,
 				E1269CBE217F676200D174A6 /* AppDelegate.swift in Sources */,
+				E135177721801772004B5054 /* HomeFeedViewController.swift in Sources */,
+				E135177A21801B88004B5054 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
